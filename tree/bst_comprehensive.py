@@ -61,17 +61,27 @@ class BinarySearchTree:
             else:
                 return False
 
-    def bst_min(self):
-        if self.left:
-            return self.left.bst_min()
+    # READ ABOUT IT JUST COPIED IT, LOGIC IS COMPLICATED TO VISUALIZE AND UNDERSTAND
+    def delete(self, val):
+        if val < self.data:
+            if self.left:
+                self.left = self.left.delete(val)
+        elif val > self.data:
+            if self.right:
+                self.right = self.right.delete(val)
         else:
-            return self.data
+            if self.left is None and self.right is None:
+                return None
+            elif self.left is None:
+                return self.right
+            elif self.right is None:
+                return self.left
 
-    def bst_max(self):
-        if self.right:
-            return self.right.bst_max()
-        else:
-            return self.data
+            min_val = self.right.find_min()
+            self.data = min_val
+            self.right = self.right.delete(min_val)
+
+        return self
 
     def bst_total(self):
         sorted_list = 0
