@@ -1,8 +1,13 @@
 import random
+import time
 
 
 def create_array(size, max):
     return [random.randint(0, max) for num in range(0, size)]
+
+
+def create_sorted_list(size):
+    return [integer for integer in range(0, size)]
 
 
 def merge(array1, array2):
@@ -33,7 +38,16 @@ def merge_sort(array):
 
 
 if __name__ == "__main__":
-    array = create_array(10, 100)
-    print(array)
-    sorted_array = merge_sort(array)
-    print(sorted_array)
+    # # Random Unsorted List
+    #input_list = create_array(10000, 100)
+    #print(input_list)
+
+    # Already sorted list
+    input_list = create_sorted_list(10000)
+    # print(input_list)
+
+    t0 = time.time()
+    sorted_array = merge_sort(input_list)
+    t1 = time.time()
+    #print("Sorted List -- {}, Time Taken -- {}".format(sorted_array, t1 - t0))
+    print("Time Taken: {}".format(t1-t0))
