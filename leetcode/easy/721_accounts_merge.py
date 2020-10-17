@@ -19,6 +19,9 @@
 # The length of accounts[i] will be in the range [1, 10].
 # The length of accounts[i][j] will be in the range [1, 30].
 
+# Logic Create a graph adj list of all the emails
+# Run dfs on all the keys in graph adj list if not visited
+# Return whats required
 
 import collections
 

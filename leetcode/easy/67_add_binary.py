@@ -14,6 +14,15 @@ class Solution:
     def addBinary(self, a, b):
         return '{0:b}'.format( int(a, 2) + int(b, 2) )
 
+    # Solution 2
+    def addBinary(self, a, b) -> str:
+        x, y = int(a, 2), int(b, 2)
+        while y:
+            answer = x ^ y
+            carry = (x & y) << 1
+            x, y = answer, carry
+        return bin(x)[2:]
+
     # Not Working
     # def addBinary2(self, a, b):
     #     carry = 0

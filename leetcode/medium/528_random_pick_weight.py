@@ -55,7 +55,7 @@
 # The bigger the number more its weight or more times it gets picked, thats the main logic
 # Create a separate list with incremental values of sum per index
 # Then get a random number using random() function 0-1 and multiply it by sum
-# Use that number to traverse a sorted array and whereever it falls return that index.... 
+# Use that number to traverse a sorted array and whereever it falls return that index....
 
 import random
 

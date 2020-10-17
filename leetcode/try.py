@@ -1,3 +1,23 @@
+def maximumSwap(num) :
+    if len(str(num)) == 1 or all(x == str(num)[0] for x in str(num)):
+        return num
+
+    max_num = num
+
+    num_list = list(str(num))
+    print(num_list)
+
+    for i in range(0, len(num_list)):
+        for j in range(0, len(num_list)):
+            num_list[i], num_list[j] = num_list[j], num_list[i]
+            temp_num = int(''.join(num_list))
+            if temp_num > max_num:
+                max_num = temp_num
+
+    return max_num
+
+print(maximumSwap(num=98368))
+
 # import collections
 #
 # accounts = [["John", "johnsmith@mail.com", "john00@mail.com"],
@@ -69,10 +89,8 @@
 # print(find_index(some_list=a, target=1))
 
 
-
-
-def myprint():
-    print("Ambarish")
-    myprint()
-
-myprint()
+# def myprint():
+#     print("Ambarish")
+#     myprint()
+#
+# myprint()
