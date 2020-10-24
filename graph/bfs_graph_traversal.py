@@ -56,6 +56,15 @@ class Graph:
         self.shortest_path.reverse()
         return self.shortest_path
 
+    # self.visited =[]
+    # self.dfs_graph_traversal_output = []
+    # def dfs(self, node):
+    #     self.visited.append(node)
+    #     self.dfs_graph_traversal_output.append(node)
+    #     if node in self.graph_adjacency_list:
+    #         for neighbor in self.graph_adjacency_list[node]:
+    #             if neighbor not in self.visited:
+    #                 self.dfs(neighbor)
 
 if __name__ == "__main__":
     edges_list = [

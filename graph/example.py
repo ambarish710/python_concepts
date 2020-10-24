@@ -24,14 +24,17 @@ class Graph:
                     self.dfs_traversal(start=vertice)
         self.node_color[start] = "Black"
 
-    def bfs_traversal(self, start):
-        self.node_color[start] = "Grey"
-        self.traversed_list.append(start)
-        if start in self.graph_dict:
-            for vertice in self.graph_dict[start]:
-                if vertice not in self.traversed_list:
-                    self.dfs_traversal(start=vertice)
-        self.node_color[start] = "Black"
+    def bfs_traversal(self, node):
+        self.visited[node] = True
+        self.bfs_queue.put(node)
+        while not self.bfs_queue.empty():
+            vertice = self.bfs_queue.get()
+            self.bfs_traversal_output.append(vertice)
+            for connected_node in self.adjacency_list[vertice]:
+                if not self.visited[connected_node]:
+                    self.bfs_queue.put(connected_node)
+                    self.bfs_parent[connected_node] = vertice
+                    self.visited[connected_node] = True
 
 
 if __name__ == "__main__":

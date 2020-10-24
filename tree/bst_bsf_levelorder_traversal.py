@@ -1,3 +1,4 @@
+
 from queue import Queue
 
 
@@ -40,6 +41,27 @@ class BinarySearchTree:
                 queue.put(self.right)
         return bfs_output
 
+    def bfs_level_order_traversal_with_sentinel(self):
+        queue = Queue()
+        sentinel = "#"
+        queue.put(sentinel)
+        queue.put(self)
+
+        while queue.qsize() > 1:
+            node = queue.get()
+            if node == "#":
+                print("\n")
+                queue.put(sentinel)
+            else:
+                print(node.data)
+
+                if node.left:
+                    queue.put(node.left)
+
+                if node.right:
+                    queue.put(node.right)
+
+
 
     def dfs_inorder_traversal(self):
         dfs_output = []
@@ -51,6 +73,41 @@ class BinarySearchTree:
         return dfs_output
 
 
+    def closestValue(self, target):
+        if self == None:
+            return None
+
+        closest = self.data
+        difference = abs(target - closest)
+        queue = Queue()
+        queue.put(self)
+
+        print("YYY -- {}".format(closest))
+        print("\n")
+
+        while not queue.empty():
+            print("XXX")
+            self = queue.get()
+            if self.data != None:
+                print("Value {} -- Current Diff {} -- Diff {} -- Curent Vale {}".format(self.data, difference, abs(self.data - target), closest))
+                if abs(self.data - target) < difference:
+                    print("Changing now")
+                    closest = self.data
+                    difference = self.data - target
+
+            if self.left:
+                queue.put(self.left)
+
+            if self.right:
+                queue.put(self.right)
+
+            print("WWW -- {}".format(closest))
+            print("\n")
+
+        print("ZZZ -- {}".format(closest))
+        return closest
+
+
 def tree_adder(data_list):
     root = BinarySearchTree(data_list[0])
     for i in range(1, len(data_list)):
@@ -60,12 +117,17 @@ def tree_adder(data_list):
 
 if __name__ == "__main__":
     data_list = [25, 3, 4, 56, 77, 29, 1, 5, 3, 2, 1]
+    #data_list = [3,1,4,None,2]
+    #data_list = [4,2,5,1,3]
     root = tree_adder(data_list)
 
     levelorder_data = root.bfs_level_order_traversal()
     print("Level order data: {}".format(levelorder_data))
 
+    root.bfs_level_order_traversal_with_sentinel()
+
     inorder_data = root.dfs_inorder_traversal()
     print("In order data: {}".format(inorder_data))
 
-
+    output = root.closestValue(target=0.428571)
+    print(output)
