@@ -1,3 +1,5 @@
+from queue import Queue
+
 # White Node not traversed
 # Grey means Node is traversed
 # Black means Node's child also traversed
@@ -7,12 +9,17 @@ class Graph:
         self.graph_dict = {}
         self.node_color = {}
         self.traversed_list = []
+        self.bfs_traversal_output = []
+        self.visited = {}
+        self.bfs_queue = Queue()
         for start, end in edges:
             if start in self.graph_dict:
                 self.graph_dict[start].append(end)
             else:
                 self.graph_dict[start] = [end]
                 self.node_color[start] = "White"
+            self.visited[start] = False
+            self.visited[end] = False
         print("Graph Dictionary: {}".format(self.graph_dict))
 
     def dfs_traversal(self, start):
@@ -30,7 +37,7 @@ class Graph:
         while not self.bfs_queue.empty():
             vertice = self.bfs_queue.get()
             self.bfs_traversal_output.append(vertice)
-            for connected_node in self.adjacency_list[vertice]:
+            for connected_node in self.graph_dict[vertice]:
                 if not self.visited[connected_node]:
                     self.bfs_queue.put(connected_node)
                     self.bfs_parent[connected_node] = vertice
