@@ -32,8 +32,8 @@
 # For all characters, note the start and the end position {char: [start, end]} and update it in a dict called index_position
 # Now traverse this index_position dict (in a for loop)
 # For example consider the first char's start1 and end1 position1
-# Add all the next occurring characters till start is less than end1
-# Make sure to update end1, if start is less than end1
+# Add all the next occurring characters till newstart is less than end1
+# Make sure to update end1, if newstart is less than end1
 # This gives you the start and end indexes, take the len of the this string and add it to return list
 # Eval--> TC - O(log n)
 

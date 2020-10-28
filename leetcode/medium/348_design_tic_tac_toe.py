@@ -118,7 +118,10 @@ class TicTacToe:
             if self.board[i][j] == player:
                 self.checker[3] += 1
 
+        print(self.checker)
+
         if any(elem == self.dimension for elem in self.checker):
+            print("Player {} Won".format(player))
             return player
         else:
             return 0
@@ -151,17 +154,17 @@ class TicTacToe:
 
 if __name__ == "__main__":
     # Approach 1 Set
-    ttt_obj = TicTacToe(n=2)
-    ttt_obj.move(0, 0, 2)
-    ttt_obj.move(0, 1, 1)
-    ttt_obj.move(1, 1, 2)
+    # ttt_obj = TicTacToe(n=2)
+    # ttt_obj.move(0, 0, 2)
+    # ttt_obj.move(0, 1, 1)
+    # ttt_obj.move(1, 1, 2)
 
     # Approach 2 Set
-    # ttt_obj = TicTacToe(n=3)
-    # ttt_obj.move(0, 0, 1)
-    # ttt_obj.move(0, 2, 2)
-    # ttt_obj.move(2, 2, 1)
-    # ttt_obj.move(1, 1, 2)
-    # ttt_obj.move(2, 0, 1)
-    # ttt_obj.move(1, 0, 2)
-    # ttt_obj.move(2, 1, 1)
+    ttt_obj = TicTacToe(n=3)
+    ttt_obj.move(0, 0, 1)
+    ttt_obj.move(0, 2, 2)
+    ttt_obj.move(2, 2, 1)
+    ttt_obj.move(1, 1, 2)
+    ttt_obj.move(2, 0, 1)
+    ttt_obj.move(1, 0, 2)
+    ttt_obj.move(2, 1, 1)

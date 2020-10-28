@@ -30,5 +30,10 @@
 
 
 def kClosest(self, points, K):
-    points.sort(key=lambda P: P[0] ** 2 + P[1] ** 2)
+    # points.sort(key=lambda P: P[0] ** 2 + P[1] ** 2)
+    # return points[:K]
+
+    def my_sort_function(x):
+        return ((x[0]**2) + (x[1]**2))
+    points.sort(key=my_sort_function)
     return points[:K]

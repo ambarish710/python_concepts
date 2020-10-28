@@ -64,13 +64,14 @@
 
 # Logic
 # Approach 1
-# Use a python deque and in it there is a inbuilt method which gives number of occurences of an item
-# Iterate over the queue and check if queue.count(item) == 1 return that item
-
-# Or Else
-# Approach 1
 # Have a dict in parallel which checks if a value is unique or not (True or False)
 # Use this dict while returning element
+
+
+# Or Else
+# Approach 2
+# Use a python deque and in it there is a inbuilt method which gives number of occurences of an item
+# Iterate over the queue and check if queue.count(item) == 1 return that item
 
 
 
