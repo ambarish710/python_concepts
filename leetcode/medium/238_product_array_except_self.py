@@ -25,7 +25,8 @@ def product_array(nums):
         left[i] = left[i-1] * nums[i-1]
 
     # for loop
-    for i in reversed(range(nums_length-1)):
+    #for i in reversed(range(nums_length - 1)):
+    for i in range(nums_length-2, -1, -1):
         right[i] = right[i+1] * nums[i+1]
 
     # for loop
@@ -37,4 +38,4 @@ def product_array(nums):
 
 if __name__ == "__main__":
     input_list = [1,2,3,4,5]
-    product_array(nums=input_list)
+    print(product_array(nums=input_list))

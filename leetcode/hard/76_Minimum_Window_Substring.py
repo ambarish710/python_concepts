@@ -34,7 +34,7 @@
 # Approach 2
 # Sliding Window
 # We start with two pointers, leftleft and rightright initially pointing to the first element of the string SS.
-# We use the rightright pointer to expand the window until we get a desirable window i.e. a window that contains all of the characters of TT.
+# We use the right pointer to expand the window until we get a desirable window i.e. a window that contains all of the characters of TT.
 # Once we have a window with all the characters, we can move the left pointer ahead one by one. If the window is still a desirable one we keep on updating the minimum window size.
 # If the window is not desirable any more, we repeat step \; 2step2 onwards.
 

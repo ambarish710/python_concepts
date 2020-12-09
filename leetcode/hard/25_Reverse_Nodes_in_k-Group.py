@@ -38,17 +38,22 @@
 
 # Logic
 # Algorithm
-# Assuming we have a reverse() function already defined for a linked list. This function would take the head of the linked list and also an integer value representing k. We don't have to reverse till the end of the linked list. Only k nodes are to be touched at a time.
+# Assuming we have a reverse() function already defined for a linked list.
+# This function would take the head of the linked list and also an integer value representing k.
 #
-# In every recursive call, we first count the number of nodes in the linked list. As soon as the count reaches k, we break.
+# We don't have to reverse till the end of the linked list.
+# Only k nodes are to be touched at a time.
+#
+# In every recursive call, we first count the number of nodes in the linked list.
+# As soon as the count reaches k, we break.
 #
 # If there are less than k nodes left in the list, we return the head of the list.
-#
 # However, if there are at least k nodes in the list, then we reverse these nodes by calling our reverse() function defined in the first step.
 #
-# Our recursion function needs to return the head of the reversed linked list. This would simply be the k^thkth nodes in the list passed to the recursion function because after reversing the first k nodes, the k^thkth node will become the new head and so on.
-#
-# So, in every recursive call, we first reverse k nodes, then recurse on the rest of the linked list. When recursion returns, we establish the proper connections.
+# Our recursion function needs to return the head of the reversed linked list.
+# This would simply be the kth nodes in the list passed to the recursion function because after reversing the first k nodes, the k^thkth node will become the new head and so on.
+# So, in every recursive call, we first reverse k nodes, then recurse on the rest of the linked list.
+# When recursion returns, we establish the proper connections.
 
 
 # Definition for singly-linked list.

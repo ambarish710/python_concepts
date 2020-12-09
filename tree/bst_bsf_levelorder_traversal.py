@@ -61,6 +61,33 @@ class BinarySearchTree:
                 if node.right:
                     queue.put(node.right)
 
+    def bfs_level_order_traversal_with_sentinel_with_list(self):
+        ret = []
+        cut = 0
+        queue = Queue()
+        sentinel = "#"
+        queue.put(sentinel)
+        queue.put(self)
+
+        while queue.qsize() > 1:
+            node = queue.get()
+            if node == "#":
+                ret += [[]]
+                queue.put(sentinel)
+                cut += 1
+            else:
+                if cut % 2 == 0:
+                    ret[-1].insert(0, node.data)
+                else:
+                    ret[-1].append(node.data)
+
+                if node.left:
+                    queue.put(node.left)
+
+                if node.right:
+                    queue.put(node.right)
+
+        return ret
 
 
     def dfs_inorder_traversal(self):
@@ -121,13 +148,13 @@ if __name__ == "__main__":
     #data_list = [4,2,5,1,3]
     root = tree_adder(data_list)
 
-    levelorder_data = root.bfs_level_order_traversal()
-    print("Level order data: {}".format(levelorder_data))
+    # levelorder_data = root.bfs_level_order_traversal()
+    # print("Level order data: {}".format(levelorder_data))
 
-    root.bfs_level_order_traversal_with_sentinel()
+    print(root.bfs_level_order_traversal_with_sentinel())
 
-    inorder_data = root.dfs_inorder_traversal()
-    print("In order data: {}".format(inorder_data))
-
-    output = root.closestValue(target=0.428571)
-    print(output)
+    # inorder_data = root.dfs_inorder_traversal()
+    # print("In order data: {}".format(inorder_data))
+    #
+    # output = root.closestValue(target=0.428571)
+    # print(output)
