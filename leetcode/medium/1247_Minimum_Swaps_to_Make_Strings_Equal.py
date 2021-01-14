@@ -57,4 +57,3 @@ class Solution:
             return -1
         return int(xy / 2) + int(yx / 2) + rem
 
-    
