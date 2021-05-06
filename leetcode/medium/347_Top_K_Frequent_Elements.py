@@ -27,7 +27,7 @@ from collections import defaultdict
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         if k > len(nums):
-            return []
+            return nums
 
         num_count_dict = defaultdict(int)
 
