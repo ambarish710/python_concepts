@@ -30,8 +30,6 @@ from collections import defaultdict
 
 class Solution:
     def topKFrequent(self, words: List[str], k: int) -> List[str]:
-        self.output = []
-
         if k <= 0:
             return self.output
 
@@ -48,6 +46,4 @@ class Solution:
         if k >= len(self.sorted_word_count):
             return [word[0] for word in self.sorted_word_count]
         else:
-            for i in range(0, k):
-                self.output.append(self.sorted_word_count[i][0])
-            return self.output
+            return [self.sorted_word_count[i][0] for i in range(0,k)]
